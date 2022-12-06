@@ -26,7 +26,7 @@ function Search() {
 }
 
 const FormStyle = styled.form`
-        margin: 0rem 20rem;
+        margin: 0rem 15rem;
         position: relative;
       
         input{
@@ -48,6 +48,18 @@ const FormStyle = styled.form`
             transform: translate(100%, -50%);
             color: white;
            
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 480px) {
+            margin: 0rem 1rem;
+        }
+
+        @media(min-width: 481px) and  (max-width: 768px) {
+            margin: 0rem 1rem;
+        }
+        @media (min-width: 769px) and (max-width: 1024px){
+            margin: 0rem 1rem;
         }
 
 `

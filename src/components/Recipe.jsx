@@ -8,14 +8,24 @@ import styled from 'styled-components'
 
 function Recipe() {
     const [details, setDetails] = useState({})
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false)
     const [activeTab, setActiveTab] = useState("Instructions")
     const {name} = useParams();
 
    
 
     const getRecipeDetails = async () => {
-      const response = await axios(`https://api.spoonacular.com/recipes/${name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
-      setDetails(response.data)
+      setIsLoading(true);
+      try {
+        const response = await axios(`https://api.spoonacular.com/recipes/${name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
+        setDetails(response.data)
+        setIsLoading(false);
+      } catch (error) {
+        setIsError(true)
+        setIsLoading(false);  
+      }
+    
      
     }
 
@@ -24,49 +34,64 @@ function Recipe() {
     }, [name])
 
   return (
-      <Detail>
-          <div>
-            <h2>{details.title}</h2>
-            <img src={details.image} alt="" />
-          </div>
+    <>
 
-          <Info>
-            <Button 
-            className={ activeTab === "Instructions" ? "active" : ""} 
-            onClick={()=> setActiveTab('Instructions')} 
-            
-            >Ingredients</Button>
-            <Button  
-            className= { activeTab === "Ingredients" ? "active" : ""} 
-            onClick={()=> setActiveTab("Ingredients")} 
-            
-            >Instructions</Button>
+    {
+      isError && <h1>Ooops! Something went wrong</h1>
+    }
 
- {      /* if the activeTab is instructions render the uhtml content */}
-            { activeTab === "Instructions" && (
-              <div>
-                <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
-                <h3 dangerouslySetInnerHTML={{__html: details.Instructions}}></h3>
-              </div>
-              )
-            }
-          
-          {/* if the activeTab is ingredients render the ul */}
-          { activeTab === "Ingredients" && (
-              <ul>
-              {details.extendedIngredients.map((ingredient) => {
-                return (
-                <li key={ingredient.id}>
-                  {ingredient.original}
-                </li>
-                )
-              }  )}
-            </ul>
+    {
+      isLoading && !isError && (<h1>Loading...</h1>) 
+    }
+    
+    {!isLoading && !isError && (
+       <Detail>
+       <div>
+         <h2>{details.title}</h2>
+         <img src={details.image} alt="" />
+       </div>
+
+       <Info>
+         <Button 
+         className={ activeTab === "Instructions" ? "active" : ""} 
+         onClick={()=> setActiveTab('Instructions')} 
+         
+         >Ingredients</Button>
+         <Button  
+         className= { activeTab === "Ingredients" ? "active" : ""} 
+         onClick={()=> setActiveTab("Ingredients")} 
+         
+         >Instructions</Button>
+
+{      /* if the activeTab is instructions render the uhtml content */}
+         { activeTab === "Instructions" && (
+           <div>
+             <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
+             <h3 dangerouslySetInnerHTML={{__html: details.Instructions}}></h3>
+           </div>
+           )
+         }
+       
+       {/* if the activeTab is ingredients render the ul */}
+       { activeTab === "Ingredients" && (
+           <ul>
+           {details.extendedIngredients.map((ingredient) => {
+             return (
+             <li key={ingredient.id}>
+               {ingredient.original}
+             </li>
              )
-          }
-          </Info>
+           }  )}
+         </ul>
+          )
+       }
+       </Info>
 
-      </Detail>
+   </Detail>
+    )}
+    
+    </>
+     
   )
 }
 

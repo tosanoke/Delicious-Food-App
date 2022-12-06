@@ -35,6 +35,8 @@ const Nav = styled.div`
   svg {
     font-size: 3rem;
   }
+
+  
 `;
 
 export default NavBar;

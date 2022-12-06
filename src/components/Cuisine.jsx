@@ -7,15 +7,22 @@ import axios from "axios";
 function Cuisine() {
   const [cuisines, setCuisine] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false)
   const { type } = useParams();
 
   const getCuisine = async (name) => {
     setIsLoading(true);
-    const response = await axios(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`
-    );
-    setCuisine(response.data.results);
-    setIsLoading(false);
+    try {  
+      const response = await axios(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`
+      );
+      setCuisine(response.data.results);
+      setIsLoading(false);
+    } catch (error) {
+      setIsError(true)
+      setIsLoading(false);
+    }
+   
   };
 
   useEffect(() => {
@@ -24,7 +31,7 @@ function Cuisine() {
 
   return (
     <>
-      {isLoading ? (
+      {isLoading && !isError ? (
         <h1>Loading...</h1>
       ) : (
         <Grid
@@ -45,6 +52,8 @@ function Cuisine() {
           })}
         </Grid>
       )}
+
+      {isError && <h1> Ooops! Something went wrong</h1>}
     </>
   );
 }
