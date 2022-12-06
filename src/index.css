@@ -1,45 +1,45 @@
 @import url("https://db.onlinewebfonts.com/c/6dd2f2510b4a00a5461b2455928209c2?family=BrandonGrotW01-Light");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 body {
   margin: 0;
-  font-family: BrandonGrotW01-Light, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: BrandonGrotW01-Light, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color:rgb(251, 251, 251);
+  color: rgb(251, 251, 251);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('./assets/images/bg2.webp');
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("./assets/images/bg2.webp");
   height: 100%;
   overflow-x: hidden;
 }
 
-.App{
+.App {
   height: 100%;
   width: 80%;
   margin: 0 auto;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-h4{
+h4 {
   font-size: 1.2rem;
   color: rgb(251, 251, 251);
 }
 
-h3{
+h3 {
   font-size: 1.2rem;
   color: rgb(255, 255, 255);
   line-height: 2.5rem;
@@ -49,4 +49,3 @@ h3{
 p {
   font-size: 1.1rem;
 }
-
