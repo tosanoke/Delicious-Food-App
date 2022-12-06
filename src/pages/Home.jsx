@@ -4,16 +4,15 @@ import Popular from "../components/Popular";
 import { motion } from 'framer-motion';
 
 
-
-
-
-
 function Home() {
   return (
-   <motion.div>
-        < Veggie />
-        < Popular />
-   </motion.div>
+    <>
+      <motion.div>
+            < Veggie />
+            < Popular />
+      </motion.div>
+    </>
+
   )
 }
 

@@ -17,6 +17,7 @@ const Logos = styled(Link)`
     font-size: 1.5rem;
     font-weight: 400;
     font-family: 'Lobster Two', cursive;
+    color: white;
 
 `
 const Nav = styled.div`
@@ -24,9 +25,10 @@ const Nav = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    color: white;
 
     svg{
-        font-size: 2rem;
+        font-size: 3rem;
     }
 `
 

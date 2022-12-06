@@ -50,7 +50,7 @@ function Popular() {
                                     <Link to={`/recipes/${recipe.id}`}>
                                     <p>{recipe.title}</p>
                                     <img src={recipe.image} alt={recipe.title} />
-                                    <Gradient></Gradient>
+                                    <Gradient />
                                     </Link>
                                 </Card>
                             </SplideSlide>
@@ -65,13 +65,15 @@ function Popular() {
 }
 
 const Wrapper = styled.div`
-    margin: 4rem 0rem;
+    margin: 4rem 0 ;
+   
 `
 const Card = styled.div`
     min-height: 250px;
     border-radius: 2rem;
     overflow: hidden;
     position: relative;
+    margin: 10px;
 
     img {
         border-radius: 2rem;
@@ -84,15 +86,15 @@ const Card = styled.div`
 
     p{
         position: absolute;
-        z-index: 1;
+        z-index: 2;
         left: 50%;
         bottom: 0%;
         transform: translate(-50%, 0%);
         color: white;
         width: 100%;
         text-align: center;
-        font-weight: 600;
-        font-size: 0.8rem;
+        font-weight: 800;
+        font-size: 1rem;
         height: 40%;
         display: flex;
         justify-content: center;
@@ -101,9 +103,9 @@ const Card = styled.div`
 `
 
 const Gradient = styled.div`
-        z-index: 3;
+        z-index: 1;
         position: absolute;
-        width: 100%
+        width: 100%;
         height: 100%;
         background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5))
 

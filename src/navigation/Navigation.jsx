@@ -1,12 +1,10 @@
 import React from 'react'
 import Home from '../pages/Home'
-import Category from '../components/Category'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Cuisine from '../components/Cuisine'
-import Searched from '../pages/Searched'
-import Recipe from '../pages/Recipe'
-import Search from '../components/Search'
-import Logo from '../pages/Logo'
+import Searched from '../components/Searched'
+import Recipe from '../components/Recipe';
+import NavBar from '../components/NavBar'
 
 
 function Navigation() {
@@ -14,9 +12,7 @@ function Navigation() {
     <div>
       
        <BrowserRouter>
-           <Logo/>
-           <Search />
-           <Category />
+          <NavBar />
           <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/cuisine/:type" element={<Cuisine />} /> 

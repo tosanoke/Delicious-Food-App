@@ -28,7 +28,6 @@ function Recipe() {
           <div>
             <h2>{details.title}</h2>
             <img src={details.image} alt="" />
-
           </div>
 
           <Info>
@@ -84,6 +83,7 @@ const Detail = styled.div`
 
       h2{
         margin-bottom: 2rem;
+        font-size: 1rem;
 
       }
 
@@ -104,7 +104,7 @@ const Button = styled.button`
       padding: 1rem 2rem;
       color: #313131;
       background: white;
-      border: 2px solid black;
+      border: 2px solid white;
       margin-right: 2rem;
       font-weight: 600
 ` 
