@@ -27,29 +27,6 @@ function Category() {
   );
 }
 
-const List = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0rem;
-
-  /* Media Query for Mobile Devices */
-  @media (max-width: 480px) {
-    /* margin: 1rem 1rem; */
-    ${Slink} {
-      h4 {
-        font-size: 0.8rem;
-      }
-      svg {
-        font-size: 1rem;
-      }
-    }
-  }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
-    margin: 1rem 1rem;
-  }
-`;
-
 const Slink = styled(NavLink)`
   display: flex;
   flex-direction: column;
@@ -58,8 +35,8 @@ const Slink = styled(NavLink)`
   border-radius: 50%;
   text-decoration: none;
   background: linear-gradient(35deg, #494949, #313131);
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
   transform: scale(0.8);
 
   h4 {
@@ -69,6 +46,31 @@ const Slink = styled(NavLink)`
   svg {
     color: white;
     font-size: 1.5rem;
+  }
+`;
+
+
+const List = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0rem;
+
+  /* Media Query for Mobile Devices */
+  @media (max-width: 480px) {
+    ${Slink} {
+      width: 5rem;
+      height: 5rem;
+      h4 {
+        font-size: 0.9rem;
+      }
+      svg {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin: 1rem 1rem;
   }
 `;
 
